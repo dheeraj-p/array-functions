@@ -7,7 +7,7 @@ const square = function(number){
 }
 
 const testMap = function(input, mapper, expectedOutput){
-  assert.deepEqual(map(input, mapper), expectedOutput);
+  assert.deepEqual(map(mapper, input), expectedOutput);
 }
 
 testMap([], square, []);
