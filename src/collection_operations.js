@@ -7,4 +7,15 @@ const map = function(mapper, collection){
   return result;
 }
 
+const filter = function(filterer, collection){
+  let result = new Array();
+  for(let item of collection){
+    if(filterer(item)){
+      result.push(item);
+    }
+  }
+  return result;
+}
+
 exports.map = map;
+exports.filter = filter;
