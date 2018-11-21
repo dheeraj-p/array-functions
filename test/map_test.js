@@ -7,17 +7,15 @@ const square = function(number){
 }
 
 describe("map", function(){
-  it("Should return an empty array", function(){
+  it("Should return an empty array when empty array mapped", function(){
     assert.deepEqual(map(square, []), []);
   });
 
-  it("Should return array with one mapped element", function(){
+  it("Should return array of length one when a single element array mapped", function(){
     assert.deepEqual(map(square, [0]), [0]);
-    assert.deepEqual(map(square, [1]), [1]);
   });
 
-  it("Should return array with multiple mapped elements", function(){
-    assert.deepEqual(map(square, [2,1]), [4,1]);
+  it("Should preserve the length with multiple element input array", function(){
     assert.deepEqual(map(square, [2,3,4,5]), [4,9,16,25]);
   });
 });
