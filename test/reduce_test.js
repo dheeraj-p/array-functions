@@ -6,12 +6,22 @@ const sum = function(a,b){
   return a+b;
 }
 
-const testReduce = function(reducer, input, expectedOutput, initializer){
-  assert.deepEqual(reduce(reducer, input, initializer), expectedOutput);
-}
+describe("reduce",function(){
+  it("Should return undefined without initializer", function(){
+    assert.equal(reduce(sum, []), undefined);
+  });
 
-testReduce(sum, [], 0, 0);
-testReduce(sum, [1], 1);
-testReduce(sum, [1,0], 1);
-testReduce(sum, [1,1,4,5], 11);
-testReduce(sum, [0], 0);
+  it("Should return 0", function(){
+    assert.equal(reduce(sum, [], 0), 0);
+  });
+
+  it("Should return sum of elements of single element array", function(){
+    assert.equal(reduce(sum, [1]),1);
+    assert.equal(reduce(sum, [0]),0);
+  });
+
+  it("Should return sum of elements of multiple element array", function(){
+    assert.equal(reduce(sum, [1,0]),1);
+    assert.equal(reduce(sum, [1,1,4,5]),11);
+  });
+});
