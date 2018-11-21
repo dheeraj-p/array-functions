@@ -6,12 +6,15 @@ const isEven = function(number){
   return number % 2 == 0;
 }
 
-const testFilter = function(filterer, input, expectedOutput){
-  assert.deepEqual(filter(filterer, input), expectedOutput);
-}
+describe("filter", function(){
+  it("Should return an empty array", function(){
+    assert.deepEqual(filter(isEven, []), []);
+    assert.deepEqual(filter(isEven, [1]), []);
+    assert.deepEqual(filter(isEven, [1,3]), []);
+  });
 
-testFilter(isEven, [], []);
-testFilter(isEven, [1], []);
-testFilter(isEven, [1,3], []);
-testFilter(isEven, [1,2,3], [2]);
-testFilter(isEven, [2,3,4,5,100,0], [2,4,100,0]);
+  it("Should return array of even numbers", function(){
+    assert.deepEqual(filter(isEven, [1,2,3]), [2]);
+    assert.deepEqual(filter(isEven, [2,3,4,5,100,0]), [2,4,100,0]);
+  });
+});
