@@ -6,13 +6,18 @@ const square = function(number){
   return number * number;
 }
 
-const testMap = function(input, mapper, expectedOutput){
-  assert.deepEqual(map(mapper, input), expectedOutput);
-}
+describe("map", function(){
+  it("Should return an empty array", function(){
+    assert.deepEqual(map(square, []), []);
+  });
 
-testMap([], square, []);
-testMap([0], square, [0]);
-testMap([1], square, [1]);
-testMap([2,1], square, [4,1]);
-testMap([2,3,4,5], square, [4,9,16,25]);
+  it("Should return array with one mapped element", function(){
+    assert.deepEqual(map(square, [0]), [0]);
+    assert.deepEqual(map(square, [1]), [1]);
+  });
 
+  it("Should return array with multiple mapped elements", function(){
+    assert.deepEqual(map(square, [2,1]), [4,1]);
+    assert.deepEqual(map(square, [2,3,4,5]), [4,9,16,25]);
+  });
+});
