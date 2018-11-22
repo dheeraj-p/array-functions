@@ -11,16 +11,16 @@ describe("reduce",function(){
     assert.equal(reduce(sum, []), undefined);
   });
 
-  it("Should return 0", function(){
+  it("Should return initializer for empty array", function(){
     assert.equal(reduce(sum, [], 0), 0);
   });
 
-  it("Should return sum of elements of single element array", function(){
+  it("Should return reduced value of single element array", function(){
     assert.equal(reduce(sum, [1]),1);
     assert.equal(reduce(sum, [0]),0);
   });
 
-  it("Should return sum of elements of multiple element array", function(){
+  it("Should return reduced value of multiple element array", function(){
     assert.equal(reduce(sum, [1,0]),1);
     assert.equal(reduce(sum, [1,1,4,5]),11);
   });
